@@ -12,6 +12,7 @@ public class TwoThread extends Thread {
 
     public static void main(String[] args) {
         TwoThread tt = new TwoThread();
+//        spawning a new thread
         tt.start();
 
         for (int i=0; i<100; i++) {
