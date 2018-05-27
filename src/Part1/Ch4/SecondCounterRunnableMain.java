@@ -6,14 +6,13 @@ import java.awt.*;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
-public class SecondCounterLockupMain extends JPanel {
-
-    private SecondCounterLockup sc;
+public class SecondCounterRunnableMain extends JPanel{
+    private SecondCounterRunnable sc;
     private JButton startB;
     private JButton stopB;
 
-    public SecondCounterLockupMain() {
-        sc = new SecondCounterLockup();
+    public SecondCounterRunnableMain() {
+        sc = new SecondCounterRunnable();
         startB = new JButton("Start");
         stopB = new JButton("Stop");
 
@@ -24,7 +23,8 @@ public class SecondCounterLockupMain extends JPanel {
             startB.setEnabled(false);
 
 //            run the counter. watch out, trouble here
-            sc.runClock();
+            Thread counterThread = new Thread(sc, "SecondCounter");
+            counterThread.start();
 
             stopB.setEnabled(true);
             stopB.requestFocus();
@@ -53,9 +53,9 @@ public class SecondCounterLockupMain extends JPanel {
     }
 
     public static void main(String[] args) {
-        SecondCounterLockupMain scm = new SecondCounterLockupMain();
+        SecondCounterRunnableMain scm = new SecondCounterRunnableMain();
 
-        JFrame f = new JFrame("Second Counter Lockup");
+        JFrame f = new JFrame("Second Counter Runnable");
         f.setContentPane(scm);
         f.setSize(320,200);
         f.setVisible(true);
