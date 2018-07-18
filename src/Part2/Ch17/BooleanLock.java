@@ -55,7 +55,7 @@ public class BooleanLock extends Object{
         return waitUntilStateIs(false, msTimeout);
     }
 
-    public boolean waitUntilStateIs(boolean state, long msTimeout) throws InterruptedException {
+    public synchronized boolean waitUntilStateIs(boolean state, long msTimeout) throws InterruptedException {
         if ( msTimeout == 0L ) {
             while ( value != state ) {
                 wait(); //wait indefinitely until notified
