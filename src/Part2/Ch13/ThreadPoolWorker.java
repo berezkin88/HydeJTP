@@ -47,7 +47,6 @@ public class ThreadPoolWorker {
     private void runWork() {
         while (noStopRequested) {
             try {
-
                 System.out.println("workerID=" + workerID + ", ready for work");
 //            worker is ready work. This will never block because the idleWorker FIFO queue has
 //            enough capacity for all workers
