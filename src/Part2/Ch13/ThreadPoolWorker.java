@@ -12,6 +12,7 @@ public class ThreadPoolWorker {
     private Thread internalThread;
     private volatile boolean noStopRequested;
 
+
     public ThreadPoolWorker(ObjectFIFO idleWorkers) {
         this.idleWorkers = idleWorkers;
         workerID = getNextWorkerID();
