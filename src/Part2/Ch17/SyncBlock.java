@@ -31,7 +31,7 @@ public class SyncBlock {
             sb.doStuff();
         };
 
-        Thread t = new Thread(r);
+        Thread t = new Thread(r, name);
         t.start();
 
         return t;
