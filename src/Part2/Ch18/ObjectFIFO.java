@@ -109,7 +109,7 @@ public class ObjectFIFO {
         }
     }
 
-    private synchronized void waitWhileEmpty() throws InterruptedException {
+    public synchronized void waitWhileEmpty() throws InterruptedException {
         while (isEmpty()) {
             wait();
         }
@@ -121,7 +121,7 @@ public class ObjectFIFO {
         }
     }
 
-    private synchronized void waitWhileFull() throws InterruptedException {
+    public synchronized void waitWhileFull() throws InterruptedException {
         while (isFull()) {
             wait();
         }
